@@ -440,6 +440,10 @@ table button:hover {
         justify-content: flex-start !important;
         gap: 10px;
     }
+    table tbody tr:last-child {
+    border-bottom: 1px solid var(--border);
+    background-color: var(--surface); 
+    }
     table button {
         width: auto;
         min-width: 75px;
@@ -495,6 +499,10 @@ table button:hover {
         flex: 0 0 65px;
         font-size: 8px;
     }
+    table tbody tr:last-child {
+    border-bottom: 1px solid var(--border);
+    background-color: var(--surface); 
+    }
     table button {
         min-width: 70px;
         height: 29px;
@@ -542,6 +550,10 @@ table button:hover {
     table tbody td:nth-child(11) {
         gap: 7px;
     }
+    table tbody tr:last-child {
+    border-bottom: 1px solid var(--border);
+    background-color: var(--surface);
+    }
     table button {
         min-width: 65px;
         height: 28px;
@@ -573,6 +585,10 @@ table button:hover {
         flex: 0 0 58px;
         font-size: 7px;
     }
+    table tbody tr:last-child {
+    border-bottom: 1px solid var(--border);
+    background-color: var(--surface); 
+    }
     table button {
         min-width: 60px;
         height: 27px;
@@ -580,3 +596,4 @@ table button:hover {
         font-size: 7px;
     }
 }
+
