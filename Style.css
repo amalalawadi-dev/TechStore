@@ -1,0 +1,582 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background: #09090b;
+  --surface: #111114;
+  --surface-light: #18181c;
+  --primary: #a855f7;
+  --primary-hover: #9333ea;
+  --text: #f4f4f5;
+  --text-light: #d4d4d8;
+  --text-muted: #71717a;
+  --border: #343438;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #22c55e;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(168, 85, 247, 0.08),
+      transparent 30%
+    ),
+    var(--background);
+  color: var(--text);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  overflow-x: hidden;
+}
+.cruds-container {
+  width: min(92%, 1450px);
+  margin: 35px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+header {
+  width: 100%;
+}
+nav {
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--border);
+}
+nav img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.cruds-heading {
+  padding: 55px 10px 30px;
+  text-align: left;
+}
+.cruds-heading h2 {
+  max-width: 800px;
+  color: var(--text);
+  font-size: clamp(30px, 5vw, 55px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+.cruds-heading h2::first-line {
+  color: var(--primary);
+}
+.cruds-heading p {
+  max-width: 600px;
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.cruds-inputs,
+.cruds-outputs {
+  width: 100%;
+}
+.cruds-inputs {
+  padding: 25px;
+  background: rgba(17, 17, 20, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+input {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-light);
+  color: var(--text);
+  font-size: 14px;
+  transition: 0.25s ease;
+}
+input::placeholder {
+  color: var(--text-muted);
+}
+input:focus {
+  border-color: var(--primary);
+  background-color: #1c1c22;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.price-total {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+#total {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  font-weight: bold;
+  color: var(--text);
+  white-space: nowrap;
+}
+#total::before {
+  content: "Total : ";
+  margin-right: 5px;
+  color: var(--text);
+  font-size: 15px;
+}
+.cruds-inputs > #count,
+.cruds-inputs > #category {
+  margin-top: 12px;
+}
+button {
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+#submit {
+  width: 100%;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+}
+#submit:hover {
+  background: linear-gradient(135deg, #b76af8, #8b5cf6);
+}
+.cruds-outputs {
+  position: relative;
+  width: 100%;
+  padding: 25px;
+  background: rgba(17, 17, 20, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+.searchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.searchContainer > input {
+  height: 50px;
+}
+.searchContainer .buttonSearch {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.searchContainer .buttonSearch button {
+  width: 100%;
+  background-color: var(--surface-light);
+  border: 1px solid var(--border);
+  color: var(--text-light);
+}
+.searchContainer .buttonSearch button:hover {
+  background-color: rgba(168, 85, 247, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: none;
+}
+#deleteAll {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: var(--danger);
+}
+#deleteAll:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: var(--danger);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.1);
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background-color: var(--surface);
+  text-align: center;
+  overflow: hidden;
+}
+table thead {
+  background-color: var(--surface-light);
+}
+table thead tr th {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+table tbody tr {
+  transition: 0.2s ease;
+}
+table tbody tr:hover {
+  background-color: rgba(168, 85, 247, 0.045);
+}
+table tbody td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+table button {
+  width: auto;
+  min-width: 65px;
+  height: 32px;
+  padding: 0 8px;
+  margin: 6px 0;
+  font-size: 9px;
+  border-radius: 7px;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: var(--danger);
+}
+table button:hover {
+  background-color: var(--danger);
+  color: white;
+}
+/* responsive design */
+@media (max-width: 1000px) {
+    .cruds-container {
+      width: 94%;
+    }
+    .cruds-heading h2 {
+        font-size: clamp(28px, 5vw, 45px);
+    }
+    .price-total {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    table thead tr th {
+        padding: 12px 6px;
+        font-size: 11px;
+    }
+    table tbody td {
+        padding: 9px 6px;
+        font-size: 12px;
+    }
+    table button {
+        min-width: 58px;
+        height: 30px;
+        padding: 0 6px;
+        font-size: 8px;
+    }
+}
+@media (max-width: 768px) {
+    .cruds-container {
+        width: 94%;
+        margin: 20px auto;
+        gap: 18px;
+    }
+    nav {
+        min-height: 60px;
+    }
+    nav img {
+        width: 42px;
+        height: 42px;
+    }
+    .cruds-heading {
+        padding: 35px 5px 20px;
+    }
+    .cruds-heading h2 {
+        font-size: clamp(28px, 7vw, 40px);
+        line-height: 1.1;
+    }
+    .cruds-heading p {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .cruds-inputs,
+    .cruds-outputs {
+        padding: 18px;
+    }
+    .price-total {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .searchContainer .buttonSearch {
+        grid-template-columns: 1fr 1fr;
+    }
+    table {
+        width: 100%;
+        background: transparent;
+    }
+    table thead{
+      display: none;
+    }
+    table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    table tbody tr {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+        margin: 0;
+        background-color: var(--surface);
+        border-radius: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    table tbody tr:hover {
+        background-color: var(--surface-light);
+    }
+    table tbody td {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start !important;
+        gap: 10px;
+        padding: 5px 3px;
+        margin: 0;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-light);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.3;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    table tbody td::before {
+        flex: 0 0 70px;
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: left;
+    }
+    table tbody td:nth-child(1)::before {
+        content: "ID";
+    }
+    table tbody td:nth-child(2)::before {
+        content: "Title";
+    }
+    table tbody td:nth-child(3)::before {
+        content: "Price";
+    }
+    table tbody td:nth-child(4)::before {
+        content: "Taxes";
+    }
+    table tbody td:nth-child(5)::before {
+        content: "Ads";
+    }
+    table tbody td:nth-child(6)::before {
+        content: "Discount";
+    }
+    table tbody td:nth-child(7)::before {
+        content: "Total";
+    }
+    table tbody td:nth-child(8)::before {
+        content: "Count";
+    }
+    table tbody td:nth-child(9)::before {
+        content: "Category";
+    }
+    table tbody td:nth-child(10)::before {
+        content: "Update";
+    }
+    table tbody td:nth-child(11)::before {
+        content: "Delete";
+    }
+    table tbody td > * {
+        min-width: 0;
+        max-width: none;
+    }
+    table tbody td:nth-child(10),
+    table tbody td:nth-child(11) {
+        justify-content: flex-start !important;
+        gap: 10px;
+    }
+    table tbody td:last-child {
+        border-bottom: none;
+    }
+    table button {
+        width: auto;
+        min-width: 75px;
+        height: 30px;
+        margin: 0;
+        padding: 0 10px;
+        font-size: 9px;
+    }
+}
+@media (max-width: 600px) {
+    .cruds-container {
+        width: 95%;
+        margin: 15px auto;
+        gap: 15px;
+    }
+    .cruds-heading {
+        padding: 25px 5px 15px;
+    }
+    .cruds-heading h2 {
+        font-size: 28px;
+    }
+    .cruds-heading p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .cruds-inputs,
+    .cruds-outputs {
+        padding: 14px;
+        border-radius: 14px;
+    }
+    .price-total {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .searchContainer .buttonSearch {
+        grid-template-columns: 1fr;
+    }
+    table tbody {
+        gap: 8px;
+    }
+    table tbody tr {
+        padding: 7px 9px;
+        border-radius: 10px;
+    }
+    table tbody td {
+        padding: 4px 2px;
+        gap: 8px;
+        font-size: 11px;
+        line-height: 1.3;
+    }
+    table tbody td::before {
+        flex: 0 0 65px;
+        font-size: 8px;
+    }
+    table button {
+        min-width: 70px;
+        height: 29px;
+        padding: 0 8px;
+        font-size: 8px;
+    }
+}
+@media (max-width: 500px) {
+    .cruds-container {
+        width: 96%;
+        margin: 12px auto;
+    }
+    .cruds-heading {
+        padding: 20px 3px 12px;
+    }
+    .cruds-heading h2 {
+        font-size: 24px;
+        line-height: 1.15;
+    }
+    .cruds-heading p {
+        font-size: 12px;
+    }
+    .cruds-inputs,
+    .cruds-outputs {
+        padding: 12px;
+    }
+    table tbody {
+        gap: 7px;
+    }
+    table tbody tr {
+        padding: 6px 8px;
+    }
+    table tbody td {
+        padding: 4px 2px;
+        gap: 7px;
+        font-size: 11px;
+        line-height: 1.25;
+    }
+    table tbody td::before {
+        flex: 0 0 62px;
+        font-size: 8px;
+    }
+    table tbody td:nth-child(10),
+    table tbody td:nth-child(11) {
+        gap: 7px;
+    }
+    table button {
+        min-width: 65px;
+        height: 28px;
+        padding: 0 7px;
+        font-size: 8px;
+    }
+}
+@media (max-width: 400px) {
+    .cruds-container {
+        width: 97%;
+    }
+    .cruds-inputs,
+    .cruds-outputs {
+        padding: 10px;
+    }
+    .cruds-heading h2 {
+        font-size: 22px;
+    }
+    table tbody tr {
+        padding: 5px 7px;
+    }
+    table tbody td {
+        padding: 3px 2px;
+        gap: 6px;
+        font-size: 10px;
+    }
+    table tbody td::before {
+        flex: 0 0 58px;
+        font-size: 7px;
+    }
+    table button {
+        min-width: 60px;
+        height: 27px;
+        padding: 0 6px;
+        font-size: 7px;
+    }
+}

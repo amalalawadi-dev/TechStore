@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore Management System</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="cruds-container">
+        <header>
+            <nav>
+                <img src="Images/logo.jpg" alt="logo website">
+            </nav>
+            <div class="cruds-heading">
+                <h2>TechStore — Electronics Inventory Management</h2>
+                <p>A modern interface for managing electronics store products</p>
+            </div>
+        </header>
+        <div class="cruds-inputs">
+            <input type="text" id="title" placeholder="Product Name">
+            <div class="price-total">
+                <input onkeyup="getTotalPrice()" type="number" id="price" placeholder="Selling Price">
+                <input onkeyup="getTotalPrice()" type="number" id="taxes" placeholder="Taxes">
+                <input onkeyup="getTotalPrice()" type="number" id="ads" placeholder="ads">
+                <input onkeyup="getTotalPrice()" type="number" id="discount" placeholder="Discount">
+                <small id="total"></small>
+            </div>
+            <input type="number" id="count" placeholder="Stock Quantity">
+            <input type="text" id="category" placeholder="Product Category">
+            <button id="submit">create</button>
+        </div>
+        <div class="cruds-outputs">
+            <div class="searchContainer">
+                <input onkeyup="searchData(this.value)" type="text" id="search" placeholder="Search">
+                <div class="buttonSearch">
+                    <button onclick="getsearchMood(this.id)" id="searchTitle">search by title</button>
+                    <button onclick="getsearchMood(this.id)" id="serchCategory">search by category</button>
+                </div>
+            </div>
+            <button onclick="deleteAll()" id="deleteAll" > </button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr> 
+                            <th>id</th>
+                            <th>title</th>
+                            <th>price</th>
+                            <th>taxes</th>
+                            <th>ads</th>
+                            <th>discount</th>
+                            <th>total</th>
+                            <th>count</th>
+                            <th>category</th>
+                            <th>update</th>
+                            <th>delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="Script.js" defer></script>
+</body>
+</html>
