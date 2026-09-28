@@ -94,15 +94,15 @@ function showData(){
     for(let i = 0; i < dataProduct.length; i++){
         table += `
         <tr>
-        <td>${i+1}</td>
-        <td>${dataProduct[i].title}</td>
-        <td>${dataProduct[i].price}</td>
-        <td>${dataProduct[i].taxes}</td>
-        <td>${dataProduct[i].ads}</td>
-        <td>${dataProduct[i].discount}</td>
-        <td>${dataProduct[i].total}</td>
-        <td>${dataProduct[i].count}</td>
-        <td>${dataProduct[i].category}</td>
+        <td data-label="Id">${i+1}</td>
+        <td data-label="Title">${dataProduct[i].title}</td>
+        <td data-label="Price">${dataProduct[i].price}</td>
+        <td data-label="Taxes">${dataProduct[i].taxes}</td>
+        <td data-label="Ads">${dataProduct[i].ads}</td>
+        <td data-label="Discount">${dataProduct[i].discount}</td>
+        <td data-label="Total">${dataProduct[i].total}</td>
+        <td data-label="Count">${dataProduct[i].count}</td>
+        <td data-label="Category">${dataProduct[i].category}</td>
         <td><button onclick="updateData(${i})">update</button></td>
         <td><button onclick="deleteData(${i})">delete</button></td>
         </tr>
