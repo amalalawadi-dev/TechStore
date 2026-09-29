@@ -172,7 +172,7 @@ function getsearchMood(id){
 function searchData(value){
     let table = "";
     let searchValue = value.toLowerCase();
-    for(let i = 0; i < dataProduct.length; i++){
+    for(let i = 1; i < dataProduct.length; i++){
         if(dataProduct[i].title.includes(searchValue)){
             table += `
                 <tr>
