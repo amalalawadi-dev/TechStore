@@ -284,11 +284,10 @@ table button:hover {
   background-color: var(--danger);
   color: white;
 }
-
-/* Responsive Design */
+/* responsive design*/
 @media (max-width: 1200px) {
   table thead tr th {
-    font-size: 11px;
+    font-size: 12px;
     padding: 12px 6px;
   }
   table tbody td {
@@ -296,107 +295,79 @@ table button:hover {
     padding: 9px 6px;
   }
 }
-
 @media (max-width: 992px) {
   .price-total {
     grid-template-columns: repeat(2, 1fr);
   }
   table thead tr th {
-    font-size: 10px;
+    font-size: 11px;
   }
   table tbody td {
     font-size: 11px;
   }
 }
-
-@media (max-width: 768px) {
-  .cruds-container {
-    width: 96%;
-    margin: 20px auto;
+@media (min-width: 503px) and (max-width: 675px) {
+   table {
+    font-size: 11px;
   }
+  table thead tr th {
+    padding: 6px 3px;
+    font-size: 10px;
+  }
+  table tbody td {
+    padding: 5px 3px;
+    font-size: 10px;
+    white-space: normal; /* يسمح للنص ينزل سطر */
+  }
+  table button {
+    min-width: 50px;
+    height: 24px;
+    font-size: 9px;
+    padding: 0 4px;
+  }
+}
+@media (max-width: 555px) {
   table, thead, tbody, th, td, tr {
     display: block;
     width: 100%;
   }
   table thead {
-    display: none; /* إخفاء رؤوس الجدول */
+    display: none;
   }
   table tbody tr {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 8px;
+    background-color: var(--surface-light);
     padding: 10px;
-    background-color: var(--surface-light);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   }
-  table tbody td {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
-    font-size: 13px;
-    border: none;
-  }
-  table tbody td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: var(--text-muted);
-  }
-}
-
-@media (max-width: 480px) {
-  input, button {
-    font-size: 12px;
-    height: 42px;
-  }
-  table tbody td {
-    font-size: 12px;
-  }
-  #submit {
-    font-size: 12px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
-    width: 100%;
-  }
-
-  table {
-    border: none;
-    background: transparent;
-  }
-
-  table tbody tr {
-    margin-bottom: 18px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background-color: var(--surface-light);
-    padding: 12px 14px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  }
-
   table tbody td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
-    font-size: 13px;
     border: none;
+    padding: 6px 0;
+    font-size: 12px;
   }
-
   table tbody td::before {
     content: attr(data-label);
     font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
+    color: var(--primary);
+    flex: 0 0 100px;
+    font-size: 12px;
+    text-align: left;
   }
-
   table button {
     width: 100%;
     margin-top: 8px;
     font-size: 11px;
-    height: 36px;
+    height: 32px;
+  }
+
+  input, button {
+    font-size: 12px;
+    height: 42px;
   }
 }
 
@@ -448,313 +419,4 @@ table button:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* responsive design
-@media (max-width: 1000px) {
-    .cruds-container {
-      width: 94%;
-    }
-    .cruds-heading h2 {
-        font-size: clamp(28px, 5vw, 45px);
-    }
-    .price-total {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    table thead tr th {
-        padding: 12px 6px;
-        font-size: 11px;
-    }
-    table tbody td {
-        padding: 9px 6px;
-        font-size: 12px;
-    }
-    table button {
-        min-width: 58px;
-        height: 30px;
-        padding: 0 6px;
-        font-size: 8px;
-    }
-}
-@media (max-width: 768px) {
-    .cruds-container {
-        width: 94%;
-        margin: 20px auto;
-        gap: 18px;
-    }
-    nav {
-        min-height: 60px;
-    }
-    nav img {
-        width: 42px;
-        height: 42px;
-    }
-    .cruds-heading {
-        padding: 35px 5px 20px;
-    }
-    .cruds-heading h2 {
-        font-size: clamp(28px, 7vw, 40px);
-        line-height: 1.1;
-    }
-    .cruds-heading p {
-        font-size: 14px;
-        margin-top: 12px;
-    }
-    .cruds-inputs,
-    .cruds-outputs {
-        padding: 18px;
-    }
-    .price-total {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-    .searchContainer .buttonSearch {
-        grid-template-columns: 1fr 1fr;
-    }
-    table {
-        width: 100%;
-        background: transparent;
-    }
-    table thead{
-      display: none;
-    }
-    table tbody {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-    table tbody tr {
-        display: block;
-        width: 100%;
-        padding: 8px 10px;
-        margin: 0;
-        background-color: var(--surface);
-        border-radius: 12px;
-        border-bottom: 1px solid var(--border);
-    }
-    table tbody tr:hover {
-        background-color: var(--surface-light);
-    }
-    table tbody td {
-        width: 100%;
-        min-width: 0;
-        min-height: 0;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start !important;
-        gap: 10px;
-        padding: 5px 3px;
-        margin: 0;
-        border-bottom: 1px solid var(--border);
-        color: var(--text-light);
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.3;
-        text-align: left;
-        white-space: normal;
-        overflow-wrap: anywhere;
-    }
-    table tbody td::before {
-        flex: 0 0 70px;
-        margin: 0;
-        color: var(--text-muted);
-        font-size: 9px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-align: left;
-    }
-    table tbody td:nth-child(1)::before {
-        content: "ID";
-    }
-    table tbody td:nth-child(2)::before {
-        content: "Title";
-    }
-    table tbody td:nth-child(3)::before {
-        content: "Price";
-    }
-    table tbody td:nth-child(4)::before {
-        content: "Taxes";
-    }
-    table tbody td:nth-child(5)::before {
-        content: "Ads";
-    }
-    table tbody td:nth-child(6)::before {
-        content: "Discount";
-    }
-    table tbody td:nth-child(7)::before {
-        content: "Total";
-    }
-    table tbody td:nth-child(8)::before {
-        content: "Count";
-    }
-    table tbody td:nth-child(9)::before {
-        content: "Category";
-    }
-    table tbody td:nth-child(10)::before {
-        content: "Update";
-    }
-    table tbody td:nth-child(11)::before {
-        content: "Delete";
-    }
-    table tbody td > * {
-        min-width: 0;
-        max-width: none;
-    }
-    table tbody td:nth-child(10),
-    table tbody td:nth-child(11) {
-        justify-content: flex-start !important;
-        gap: 10px;
-    }
-    table button {
-        width: auto;
-        min-width: 75px;
-        height: 30px;
-        margin: 0;
-        padding: 0 10px;
-        font-size: 9px;
-    }
-}
-@media (max-width: 600px) {
-    .cruds-container {
-        width: 95%;
-        margin: 15px auto;
-        gap: 15px;
-    }
-    .cruds-heading {
-        padding: 25px 5px 15px;
-    }
-    .cruds-heading h2 {
-        font-size: 28px;
-    }
-    .cruds-heading p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-    .cruds-inputs,
-    .cruds-outputs {
-        padding: 14px;
-        border-radius: 14px;
-    }
-    .price-total {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    .searchContainer .buttonSearch {
-        grid-template-columns: 1fr;
-    }
-    table tbody {
-        gap: 8px;
-    }
-    table tbody tr {
-        padding: 7px 9px;
-        border-radius: 10px;
-        border-bottom: 1px solid var(--border);
-    }
-    table tbody td {
-        padding: 4px 2px;
-        gap: 8px;
-        font-size: 11px;
-        line-height: 1.3;
-    }
-    table tbody td::before {
-        flex: 0 0 65px;
-        font-size: 8px;
-    }
-    table button {
-        min-width: 70px;
-        height: 29px;
-        padding: 0 8px;
-        font-size: 8px;
-    }
-}
-@media (max-width: 500px) {
-    .cruds-container {
-        width: 96%;
-        margin: 12px auto;
-    }
-    .cruds-heading {
-        padding: 20px 3px 12px;
-    }
-    .cruds-heading h2 {
-        font-size: 24px;
-        line-height: 1.15;
-    }
-    .cruds-heading p {
-        font-size: 12px;
-    }
-    .cruds-inputs,
-    .cruds-outputs {
-        padding: 12px;
-    }
-    table tbody {
-        gap: 7px;
-    }
-    table tbody tr {
-        padding: 6px 8px;
-        border-bottom: 1px solid var(--border);
-    }
-    table tbody td {
-        padding: 4px 2px;
-        gap: 7px;
-        font-size: 11px;
-        line-height: 1.25;
-    }
-    table tbody td::before {
-        flex: 0 0 62px;
-        font-size: 8px;
-    }
-    table tbody td:nth-child(10),
-    table tbody td:nth-child(11) {
-        gap: 7px;
-    }
-    table button {
-        min-width: 65px;
-        height: 28px;
-        padding: 0 7px;
-        font-size: 8px;
-    }
-}
-@media (max-width: 400px) {
-    .cruds-container {
-        width: 97%;
-    }
-    .cruds-inputs,
-    .cruds-outputs {
-        padding: 10px;
-    }
-    .cruds-heading h2 {
-        font-size: 22px;
-    }
-    table tbody tr {
-        padding: 5px 7px;
-        border-bottom: 1px solid var(--border);
-    }
-    table tbody td {
-        padding: 3px 2px;
-        gap: 6px;
-        font-size: 10px;
-    }
-    table tbody td::before {
-        flex: 0 0 58px;
-        font-size: 7px;
-    }
-    table button {
-        min-width: 60px;
-        height: 27px;
-        padding: 0 6px;
-        font-size: 7px;
-    }
-} */
 
