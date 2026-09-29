@@ -236,6 +236,7 @@ table {
   background-color: var(--surface);
   text-align: center;
   overflow: hidden;
+  text-transform: uppercase;
 }
 table thead {
   background-color: var(--surface-light);

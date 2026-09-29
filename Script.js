@@ -42,14 +42,14 @@ else{
 }
 createBtn.onclick = function(){
     let newProduct = {
-        title:title.value.toUpperCase(),
+        title:title.value.toLowerCase(),
         price:price.value,
         taxes:taxes.value,
         ads:ads.value,
         discount:discount.value,
         total:total.innerHTML,
         count:count.value,
-        category:category.value.toUpperCase()
+        category:category.value.toLowerCase()
     }   
     if(title.value != "" 
         && price.value != ""
