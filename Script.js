@@ -35,21 +35,22 @@ function getTotalPrice(){
 // create product , save local storage , count, clean data
 let dataProduct;
 if(localStorage.product != null){
-    dataProduct = JSON.parse(localStorage.product)
+    dataProduct = JSON.parse(localStorage.product);
 }
 else{
     dataProduct = [];
 }
+
 createBtn.onclick = function(){
     let newProduct = {
-        title:title.value.toUpperCase(),
+        title:title.value,
         price:price.value,
         taxes:taxes.value,
         ads:ads.value,
         discount:discount.value,
         total:total.innerHTML,
         count:count.value,
-        category:category.value.toUpperCase()
+        category:category.value
     }   
     if(title.value != "" 
         && price.value != ""
@@ -170,8 +171,9 @@ function getsearchMood(id){
 
 function searchData(value){
     let table = "";
+    let searchValue = value.toLowerCase();
     for(let i = 0; i < dataProduct.length; i++){
-        if(dataProduct[i].title.includes(value.toUpperCase())){
+        if(dataProduct[i].title.includes(searchValue)){
             table += `
                 <tr>
                 <td>${i}</td>
@@ -188,7 +190,7 @@ function searchData(value){
                 </tr>
             `
         }
-        else if(dataProduct[i].category.includes(value.toUpperCase())){
+        else if(dataProduct[i].category.includes(searchValue)){
             table += `
                 <tr>
                 <td>${i}</td>
