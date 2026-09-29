@@ -42,14 +42,14 @@ else{
 }
 createBtn.onclick = function(){
     let newProduct = {
-        title:title.value.toLowerCase(),
+        title:title.value.toUpperCase(),
         price:price.value,
         taxes:taxes.value,
         ads:ads.value,
         discount:discount.value,
         total:total.innerHTML,
         count:count.value,
-        category:category.value.toLowerCase()
+        category:category.value.toUpperCase()
     }   
     if(title.value != "" 
         && price.value != ""
@@ -171,7 +171,7 @@ function getsearchMood(id){
 function searchData(value){
     let table = "";
     for(let i = 0; i < dataProduct.length; i++){
-        if(dataProduct[i].title.includes(value.toLowerCase())){
+        if(dataProduct[i].title.includes(value.toUpperCase())){
             table += `
                 <tr>
                 <td>${i}</td>
@@ -188,7 +188,7 @@ function searchData(value){
                 </tr>
             `
         }
-        else if(dataProduct[i].category.includes(value.toLowerCase())){
+        else if(dataProduct[i].category.includes(value.toUpperCase())){
             table += `
                 <tr>
                 <td>${i}</td>
