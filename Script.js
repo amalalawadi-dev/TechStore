@@ -171,7 +171,7 @@ function getsearchMood(id){
 function searchData(value){
     let table = "";
     for(let i = 0; i < dataProduct.length; i++){
-        if(dataProduct[i].title.includes(value)){
+        if(dataProduct[i].title.includes(value.toLowerCase())){
             table += `
                 <tr>
                 <td>${i}</td>
@@ -188,7 +188,7 @@ function searchData(value){
                 </tr>
             `
         }
-        else if(dataProduct[i].category.includes(value)){
+        else if(dataProduct[i].category.includes(value.toLowerCase())){
             table += `
                 <tr>
                 <td>${i}</td>
