@@ -171,32 +171,22 @@ function getsearchMood(id){
 
 function searchData(value){
     let table = "";
-    let searchValue = value.toLowerCase();
+    let searchValue = value.toLowerCase().trim();
+
     for(let i = 0; i < dataProduct.length; i++){
+
+        let productValue;
+
         if(searchMood === "title"){
-            if(dataProduct[i].title.includes(searchValue)){
-                table += `
-                <tr>
-                <td>${i+1}</td>
-                <td>${dataProduct[i].title}</td>
-                <td>${dataProduct[i].price}</td>
-                <td>${dataProduct[i].taxes}</td>
-                <td>${dataProduct[i].ads}</td>
-                <td>${dataProduct[i].discount}</td>
-                <td>${dataProduct[i].total}</td>
-                <td>${dataProduct[i].count}</td>
-                <td>${dataProduct[i].category}</td>
-                <td><button onclick="updateData(${i})">update</button></td>
-                <td><button onclick="deleteData(${i})">delete</button></td>
-                </tr>
-            `
+            productValue = dataProduct[i].title;
+        }else{
+            productValue = dataProduct[i].category;
         }
-    }
-        else{
-        if (dataProduct[i].category.includes(searchValue)){
+
+        if(productValue.toLowerCase().trim().includes(searchValue)){
             table += `
                 <tr>
-                <td>${i}</td>
+                <td>${i + 1}</td>
                 <td>${dataProduct[i].title}</td>
                 <td>${dataProduct[i].price}</td>
                 <td>${dataProduct[i].taxes}</td>
@@ -208,11 +198,57 @@ function searchData(value){
                 <td><button onclick="updateData(${i})">update</button></td>
                 <td><button onclick="deleteData(${i})">delete</button></td>
                 </tr>
-            `
+            `;
         }
     }
+
+    document.getElementById("tbody").innerHTML = table;
 }
-    document.getElementById("tbody").innerHTML = table;   
-}
+
+// function searchData(value){
+//     let table = "";
+//     let searchValue = value.toLowerCase();
+//     for(let i = 0; i < dataProduct.length; i++){
+//         if(searchMood === "title"){
+//             if(dataProduct[i].title.includes(searchValue)){
+//                 table += `
+//                 <tr>
+//                 <td>${i+1}</td>
+//                 <td>${dataProduct[i].title}</td>
+//                 <td>${dataProduct[i].price}</td>
+//                 <td>${dataProduct[i].taxes}</td>
+//                 <td>${dataProduct[i].ads}</td>
+//                 <td>${dataProduct[i].discount}</td>
+//                 <td>${dataProduct[i].total}</td>
+//                 <td>${dataProduct[i].count}</td>
+//                 <td>${dataProduct[i].category}</td>
+//                 <td><button onclick="updateData(${i})">update</button></td>
+//                 <td><button onclick="deleteData(${i})">delete</button></td>
+//                 </tr>
+//             `
+//         }
+//     }
+//         else{
+//         if (dataProduct[i].category.includes(searchValue)){
+//             table += `
+//                 <tr>
+//                 <td>${i}</td>
+//                 <td>${dataProduct[i].title}</td>
+//                 <td>${dataProduct[i].price}</td>
+//                 <td>${dataProduct[i].taxes}</td>
+//                 <td>${dataProduct[i].ads}</td>
+//                 <td>${dataProduct[i].discount}</td>
+//                 <td>${dataProduct[i].total}</td>
+//                 <td>${dataProduct[i].count}</td>
+//                 <td>${dataProduct[i].category}</td>
+//                 <td><button onclick="updateData(${i})">update</button></td>
+//                 <td><button onclick="deleteData(${i})">delete</button></td>
+//                 </tr>
+//             `
+//         }
+//     }
+// }
+//     document.getElementById("tbody").innerHTML = table;   
+// }
 
 
