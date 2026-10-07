@@ -172,11 +172,12 @@ function getsearchMood(id){
 function searchData(value){
     let table = "";
     let searchValue = value.toLowerCase();
-    for(let i = 1; i < dataProduct.length; i++){
-        if(dataProduct[i].title.includes(searchValue)){
-            table += `
+    for(let i = 0; i < dataProduct.length; i++){
+        if(searchMood === "title"){
+            if(dataProduct[i].title.includes(searchValue)){
+                table += `
                 <tr>
-                <td>${i}</td>
+                <td>${i+1}</td>
                 <td>${dataProduct[i].title}</td>
                 <td>${dataProduct[i].price}</td>
                 <td>${dataProduct[i].taxes}</td>
@@ -190,7 +191,9 @@ function searchData(value){
                 </tr>
             `
         }
-        else if(dataProduct[i].category.includes(searchValue)){
+    }
+        else{
+        if (dataProduct[i].category.includes(searchValue)){
             table += `
                 <tr>
                 <td>${i}</td>
@@ -208,6 +211,7 @@ function searchData(value){
             `
         }
     }
+}
     document.getElementById("tbody").innerHTML = table;   
 }
 
